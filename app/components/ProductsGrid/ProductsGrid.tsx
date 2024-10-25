@@ -1,9 +1,27 @@
 import React from "react";
 import { Grid, Container } from "@mui/material";
-import { products } from "@/app/lib/data/products";
 import ProductCard from "../ProductCard/ProductCard";
+import { get } from "http";
+import { getProducts } from "@/app/lib/data/products";
 
-export default function ProductsGrid() {
+type Product = {
+  id: number;
+  name: string;
+  slug: string;
+  price: number;
+  description: string;
+  image: string;
+};
+
+export default async function ProductsGrid() {
+  const products = (await getProducts()) as Product[];
+
+  if (!products) {
+    return null;
+  }
+
+  console.log(products[0].description);
+
   return (
     <Container maxWidth="lg" sx={{ my: 2 }}>
       <Grid container spacing={4}>

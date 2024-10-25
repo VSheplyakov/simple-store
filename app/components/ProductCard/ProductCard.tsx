@@ -17,8 +17,8 @@ type Product = {
   name: string;
   slug: string;
   price: number;
-  description: string[];
-  imageURL: string;
+  description: string;
+  image: string;
 };
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -27,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <CardMedia
         component="img"
         height="200"
-        image={product.imageURL}
+        image={product.image}
         alt={product.name}
       />
       <CardContent>
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.name}
         </Typography>
         <List dense={true}>
-          {product.description.map((item, index) => (
+          {product.description.split(",").map((item: string, index: number) => (
             <ListItem key={index} disablePadding>
               <ListItemText
                 primary={

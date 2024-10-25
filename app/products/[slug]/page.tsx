@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { products } from "@/app/lib/data/products";
 import {
   Container,
   Grid,
@@ -12,16 +11,19 @@ import {
   Stack,
 } from "@mui/material";
 import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
-
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
+import { getProduct, getProducts } from "@/app/lib/data/products";
 
 interface Params {
   slug: string;
 }
+type Product = {
+  id: number;
+  name: string;
+  slug: string;
+  price: number;
+  description: string;
+  image: string;
+};
 
 export default async function ProductDetailedPage({
   params,
@@ -29,8 +31,9 @@ export default async function ProductDetailedPage({
   params: Params;
 }) {
   const { slug } = await params;
+  const product = getProduct(slug) as Product;
 
-  const product = products.find((p) => p.slug === slug);
+  const products = (await getProducts()) as Product[];
 
   if (!product) {
     notFound();
@@ -39,17 +42,14 @@ export default async function ProductDetailedPage({
   return (
     <Container maxWidth="lg" sx={{ my: 4 }}>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Stack alignItems={"center"}>
             <CardMedia
               component="img"
-              image={product.imageURL}
+              image={product.image}
               alt={product.name}
               sx={{
                 borderRadius: 2,
-                maxHeight: 300,
-                maxWidth: 300,
-                
               }}
             />
           </Stack>
@@ -61,7 +61,7 @@ export default async function ProductDetailedPage({
             alt={product.name}
           /> */}
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={8}>
           <Typography variant="h2" gutterBottom>
             {product.name}
           </Typography>
@@ -69,7 +69,7 @@ export default async function ProductDetailedPage({
             ${product.price}
           </Typography>
           <List>
-            {product.description.map((item, index) => (
+            {product.description.split(",").map((item, index) => (
               <ListItem key={index} disablePadding>
                 <ListItemText
                   primary={
@@ -97,7 +97,7 @@ export default async function ProductDetailedPage({
           </Button>
         </Grid>
       </Grid>
-      <AdCaroucel />
+      <AdCaroucel products={products} />
     </Container>
   );
 }

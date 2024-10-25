@@ -14,8 +14,9 @@ import "swiper/css/pagination";
 import Link from "next/link";
 import { Pagination } from "swiper/modules";
 import { styled } from "@mui/material/styles";
-import { products } from "@/app/lib/data/products";
 import Image from "next/image";
+import { get } from "http";
+import { getProducts } from "@/app/lib/data/products";
 
 const CustomSwiper = styled(Swiper)(() => ({
   paddingBottom: "30px",
@@ -30,7 +31,19 @@ const CustomSwiper = styled(Swiper)(() => ({
   },
 }));
 
-export function AdCaroucel() {
+type Product = {
+  id: number;
+  name: string;
+  slug: string;
+  price: number;
+  description: string;
+  image: string;
+};
+
+
+
+export function AdCaroucel({ products }: { products: Product[] }) {
+
 
   return (
     <Fade in={true} timeout={700}>
@@ -62,7 +75,7 @@ export function AdCaroucel() {
                 <Stack>
                   <Stack>
                     <Image
-                      src={p.imageURL}
+                      src={p.image}
                       alt={p.name}
                       width={200}
                       height={200}
