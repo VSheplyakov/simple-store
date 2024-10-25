@@ -4,6 +4,7 @@ export const products = [
   {
     id: 1,
     name: "Smartphone X1",
+    slug: "smartphone-x1",
     description: [
       "6.5-inch Super AMOLED display",
       "Octa-core 2.9GHz processor",
@@ -17,6 +18,7 @@ export const products = [
   {
     id: 2,
     name: "Mobile Pro S",
+    slug: "mobile-pro-s",
     description: [
       "6.1-inch Liquid Retina display",
       "Hexa-core 2.7GHz processor",
@@ -30,6 +32,7 @@ export const products = [
   {
     id: 3,
     name: "Galaxy Neo",
+    slug: "galaxy-neo",
     description: [
       "6.4-inch Dynamic AMOLED display",
       "Octa-core 2.8GHz processor",
@@ -43,6 +46,7 @@ export const products = [
   {
     id: 4,
     name: "Pixel Max",
+    slug: "pixel-max",
     description: [
       "6.0-inch OLED display",
       "Octa-core 2.4GHz processor",
@@ -56,6 +60,7 @@ export const products = [
   {
     id: 5,
     name: "OnePlus Z",
+    slug: "oneplus-z",
     description: [
       "6.55-inch Fluid AMOLED display with 90Hz refresh rate",
       "Octa-core 2.86GHz processor",
@@ -69,6 +74,7 @@ export const products = [
   {
     id: 6,
     name: "Moto Edge",
+    slug: "moto-edge",
     description: [
       "6.7-inch OLED display with 90Hz refresh rate",
       "Octa-core 2.2GHz processor",
@@ -82,6 +88,7 @@ export const products = [
   {
     id: 7,
     name: "Nokia PureView",
+    slug: "nokia-pureview",
     description: [
       "6.18-inch IPS LCD display",
       "Octa-core 2.0GHz processor",
@@ -95,6 +102,7 @@ export const products = [
   {
     id: 8,
     name: "Xperia Ultra",
+    slug: "xperia-ultra",
     description: [
       "6.5-inch 4K OLED display",
       "Octa-core 2.84GHz processor",
@@ -108,6 +116,7 @@ export const products = [
   {
     id: 9,
     name: "LG Velvet",
+    slug: "lg-velvet",
     description: [
       "6.8-inch P-OLED display",
       "Octa-core 2.0GHz processor",
@@ -121,6 +130,7 @@ export const products = [
   {
     id: 10,
     name: "Huawei P Smart",
+    slug: "huawei-p-smart",
     description: [
       "6.21-inch LTPS IPS LCD display",
       "Octa-core 2.2GHz processor",
@@ -134,6 +144,7 @@ export const products = [
   {
     id: 11,
     name: "Oppo Find X2",
+    slug: "oppo-find-x2",
     description: [
       "6.7-inch AMOLED display with 120Hz refresh rate",
       "Octa-core 2.84GHz processor",
@@ -147,6 +158,7 @@ export const products = [
   {
     id: 12,
     name: "Realme XT",
+    slug: "realme-xt",
     description: [
       "6.4-inch Super AMOLED display",
       "Octa-core 2.3GHz processor",
@@ -160,6 +172,7 @@ export const products = [
   {
     id: 13,
     name: "Vivo Nex 3",
+    slug: "vivo-nex-3",
     description: [
       "6.89-inch Super AMOLED display",
       "Octa-core 2.96GHz processor",
@@ -173,6 +186,7 @@ export const products = [
   {
     id: 14,
     name: "Asus ROG Phone 3",
+    slug: "asus-rog-phone-3",
     description: [
       "6.59-inch AMOLED display with 144Hz refresh rate",
       "Octa-core 3.1GHz processor",
@@ -186,6 +200,7 @@ export const products = [
   {
     id: 15,
     name: "BlackBerry Key3",
+    slug: "blackberry-key3",
     description: [
       "4.5-inch IPS LCD display",
       "Octa-core 2.2GHz processor",

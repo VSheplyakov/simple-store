@@ -10,10 +10,12 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
+import Link from "next/link";
 
 type Product = {
   id: number;
   name: string;
+  slug: string;
   price: number;
   description: string[];
   imageURL: string;
@@ -57,13 +59,15 @@ export default function ProductCard({ product }: { product: Product }) {
           ${product.price}
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: "space-around", pb:2 }}>
+      <CardActions sx={{ justifyContent: "space-around", pb: 2 }}>
         <Button size="small" variant="contained" color="primary">
           Buy Now
         </Button>
-        <Button size="small" variant="outlined" color="primary">
-          Learn More
-        </Button>
+        <Link href={`/products/${product.slug}`} passHref>
+          <Button size="small" variant="outlined" color="primary">
+            Learn More
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

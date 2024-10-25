@@ -8,37 +8,33 @@ export function Footer() {
     <Box sx={{ bgcolor: "primary.main" }}>
       <Stack component="footer" maxWidth={"lg"} m="0 auto" py={1}>
         <Stack
-          // px={4}
-          py={2}
           alignItems={"center"}
           direction={"row"}
           justifyContent={{ xs: "center", md: "space-between" }}
         >
-          <Stack
-            direction="row"
-            gap={1}
-            alignItems="center"
-            sx={{ display: { xs: "none", md: "flex" } }}
-          >
+          <Stack sx={{ display: { xs: "none", md: "flex" } }}>
             <Link href="/">
-              <Image
-                src="/logo.jpg"
-                alt="logo"
-                width={35}
-                height={35}
-                style={{ borderRadius: "12px" }}
-              />
+              <Stack direction="row" gap={1} alignItems="center">
+                <Image
+                  src="/logo.jpg"
+                  alt="logo"
+                  width={35}
+                  height={35}
+                  style={{ borderRadius: "12px" }}
+                />
+
+                <Typography
+                  variant="h4"
+                  sx={{
+                    background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  SimpleStore
+                </Typography>
+              </Stack>
             </Link>
-            <Typography
-              variant="h4"
-              sx={{
-                background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              SimpleStore
-            </Typography>
           </Stack>
           <Stack maxWidth={"lg"} gap={2} direction={"row"}>
             {headerConfig.map((item) => (
