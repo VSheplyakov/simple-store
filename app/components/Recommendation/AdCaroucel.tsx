@@ -3,9 +3,7 @@ import {
   Box,
   Fade,
   Stack,
-  Theme,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -33,9 +31,6 @@ const CustomSwiper = styled(Swiper)(() => ({
 }));
 
 export function AdCaroucel() {
-  const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
 
   return (
     <Fade in={true} timeout={700}>
