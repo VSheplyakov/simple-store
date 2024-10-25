@@ -9,7 +9,10 @@ import {
   ListItem,
   ListItemText,
   CardMedia,
+  Stack,
 } from "@mui/material";
+import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -21,7 +24,11 @@ interface Params {
   slug: string;
 }
 
-export default async function ProductDetailedPage({ params }: { params: Params }) {
+export default async function ProductDetailedPage({
+  params,
+}: {
+  params: Params;
+}) {
   const { slug } = await params;
 
   const product = products.find((p) => p.slug === slug);
@@ -34,12 +41,26 @@ export default async function ProductDetailedPage({ params }: { params: Params }
     <Container maxWidth="lg" sx={{ my: 4 }}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
-          <CardMedia
-            component="img"
-            image={product.imageURL}
+          <Stack alignItems={"center"}>
+            <CardMedia
+              component="img"
+              image={product.imageURL}
+              alt={product.name}
+              sx={{
+                borderRadius: 2,
+                maxHeight: 300,
+                maxWidth: 300,
+                
+              }}
+            />
+          </Stack>
+          {/* </CardMedia>
+          {/* <Image
+            src={product.imageURL}
+            width={350}
+            height={350}
             alt={product.name}
-            sx={{ borderRadius: 2 }}
-          />
+          /> */}
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" gutterBottom>
@@ -77,6 +98,7 @@ export default async function ProductDetailedPage({ params }: { params: Params }
           </Button>
         </Grid>
       </Grid>
+      <AdCaroucel />
     </Container>
   );
 }

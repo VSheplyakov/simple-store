@@ -1,0 +1,101 @@
+"use client";
+import {
+  Box,
+  Fade,
+  Stack,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+import Link from "next/link";
+import { Pagination } from "swiper/modules";
+import { styled } from "@mui/material/styles";
+import { products } from "@/app/lib/data/products";
+import Image from "next/image";
+
+const CustomSwiper = styled(Swiper)(() => ({
+  paddingBottom: "30px",
+  "& .swiper-pagination-bullet": {
+    transition: "all 0.3s ease",
+  },
+  "& .swiper-pagination-bullet-active": {
+    backgroundColor: "gray",
+    opacity: 0.8,
+    borderRadius: "6px",
+    width: "16px",
+  },
+}));
+
+export function AdCaroucel() {
+  const isMobile = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+
+  return (
+    <Fade in={true} timeout={700}>
+      <Box pt={4}>
+        <Typography
+          sx={{ fontSize: "20px", fontWeight: 700 }}
+          pb={4}
+          data-testid="ad-title"
+        >
+          Recommendation for you
+        </Typography>
+        <CustomSwiper
+          spaceBetween={16}
+          slidesPerView="auto"
+          modules={[Pagination]}
+          pagination={{
+            clickable: true,
+          }}
+          style={{
+            paddingBottom: "30px",
+          }}
+        >
+          {products.map((p) => (
+            <SwiperSlide key={p.id} style={{ width: "auto" }}>
+              <Link
+                href={`/products/${p.slug}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <Stack>
+                  <Stack>
+                    <Image
+                      src={p.imageURL}
+                      alt={p.name}
+                      width={200}
+                      height={200}
+                      style={{ borderRadius: "12px" }}
+                    />
+                  </Stack>
+
+                  <Stack
+                    direction={"column"}
+                    mt={1}
+                    sx={{ width: { xs: "140px", md: "228px" } }}
+                  >
+                    <Stack spacing={1} pl={1}>
+                      <Typography fontWeight={"800"} fontSize={"16px"}>
+                        {p.name}
+                      </Typography>
+
+                      <Typography fontWeight={"800"} fontSize={"16px"}>
+                        {p.price}
+                      </Typography>
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </CustomSwiper>
+      </Box>
+    </Fade>
+  );
+}
