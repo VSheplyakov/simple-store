@@ -8,7 +8,7 @@ export const headerConfig = [
     href: "/about",
   },
   {
-    name: "Contact",
-    href: "/contact",
+    name: "Contacts",
+    href: "/contacts",
   },
 ];

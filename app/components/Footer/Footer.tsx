@@ -1,48 +1,59 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { headerConfig } from "../Header/headerConfig";
 
 export function Footer() {
   return (
     <Box sx={{ bgcolor: "primary.main" }}>
       <Stack component="footer" maxWidth={"lg"} m="0 auto" py={1}>
         <Stack
-          px={4}
+          // px={4}
           py={2}
           alignItems={"center"}
           direction={"row"}
           justifyContent={{ xs: "center", md: "space-between" }}
         >
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <Stack
+            direction="row"
+            gap={1}
+            alignItems="center"
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
             <Link href="/">
               <Image
                 src="/logo.jpg"
                 alt="logo"
-                width={50}
-                height={50}
+                width={35}
+                height={35}
                 style={{ borderRadius: "12px" }}
               />
             </Link>
-          </Box>
+            <Typography
+              variant="h4"
+              sx={{
+                background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              SimpleStore
+            </Typography>
+          </Stack>
           <Stack maxWidth={"lg"} gap={2} direction={"row"}>
-            <Link
-              href="/about"
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Contact
-            </Link>
+            {headerConfig.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                  }}
+                >
+                  {item.name}
+                </Typography>
+              </Link>
+            ))}
 
             <Link
               href="/terms"

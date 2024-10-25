@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Stack } from "@mui/material";
+import { Button, Divider, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
@@ -19,24 +19,34 @@ export default function Header() {
           p: 2,
         }}
       >
-        <Link href="/">
-          <Box
+        <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Stack
+            direction={"row"}
             sx={{
-              width: "70px",
-              height: "70px",
-              position: "relative",
-              ml: 2,
+              alignItems: "center",
+              gap: 1,
+              textDecoration: "none",
             }}
           >
             <Image
               src="/logo.jpg"
               alt="logo"
-              fill
-              style={{ borderRadius: "12px", objectFit: "cover" }}
-              sizes="(max-width: 600px) 100px, 200px"
+              width={50}
+              height={50}
               priority
+              style={{ borderRadius: "12px" }}
             />
-          </Box>
+            <Typography
+              variant="h3"
+              sx={{
+                background: "linear-gradient(90deg, #ff6b6b, #f0e130)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              SimpleStore
+            </Typography>
+          </Stack>
         </Link>
         <Stack
           sx={{ display: { xs: "none", md: "flex" } }}
@@ -45,7 +55,9 @@ export default function Header() {
         >
           {headerConfig.map((item) => (
             <Link key={item.name} href={item.href}>
-              <Button variant="text">{item.name}</Button>
+              <Button variant="text" size="large">
+                {item.name}
+              </Button>
             </Link>
           ))}
         </Stack>
@@ -65,6 +77,7 @@ export default function Header() {
           </Stack>
         </Stack>
       </Stack>
+      <Divider />
     </>
   );
 }

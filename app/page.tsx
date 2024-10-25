@@ -1,5 +1,10 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
+import ProductsGrid from "./components/ProductsGrid/ProductsGrid";
 
 export default function Home() {
-  return <Box>mkl</Box>;
+  return (
+    <Stack width="100%" m="0 auto" justifyContent={"center"}>
+      <ProductsGrid />
+    </Stack>
+  );
 }
