@@ -12,7 +12,6 @@ import {
   Stack,
 } from "@mui/material";
 import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
-import Image from "next/image";
 
 export async function generateStaticParams() {
   return products.map((product) => ({
