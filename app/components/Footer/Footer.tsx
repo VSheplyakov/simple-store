@@ -1,28 +1,44 @@
-import { Box, Link, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
     <Box sx={{ bgcolor: "primary.main" }}>
       <Stack component="footer" maxWidth={"lg"} m="0 auto" py={1}>
-        <Stack px={4} py={2}>
-          <Stack
-            maxWidth={"lg"}
-            gap={2}
-            direction={"row"}
-            justifyContent={{ xs: "center", md: "flex-end" }}
-          >
+        <Stack
+          px={4}
+          py={2}
+          alignItems={"center"}
+          direction={"row"}
+          justifyContent={{ xs: "center", md: "space-between" }}
+        >
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <Link href="/">
+              <Image
+                src="/logo.jpg"
+                alt="logo"
+                width={50}
+                height={50}
+                style={{ borderRadius: "12px" }}
+              />
+            </Link>
+          </Box>
+          <Stack maxWidth={"lg"} gap={2} direction={"row"}>
             <Link
               href="/about"
-              sx={{
+              style={{
                 color: "white",
+                textDecoration: "none",
               }}
             >
               About
             </Link>
             <Link
               href="/contact"
-              sx={{
+              style={{
                 color: "white",
+                textDecoration: "none",
               }}
             >
               Contact
@@ -30,7 +46,7 @@ export function Footer() {
 
             <Link
               href="/terms"
-              sx={{
+              style={{
                 color: "white",
                 textDecoration: "none",
               }}
@@ -39,8 +55,9 @@ export function Footer() {
             </Link>
             <Link
               href="/privacy"
-              sx={{
+              style={{
                 color: "white",
+                textDecoration: "none",
               }}
             >
               Privacy

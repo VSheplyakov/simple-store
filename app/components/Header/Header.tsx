@@ -1,4 +1,4 @@
-import { Button, IconButton, Stack } from "@mui/material";
+import { Box, Button, IconButton, Stack } from "@mui/material";
 import Image from "next/image";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
@@ -19,14 +19,15 @@ export default function Header() {
           p: 2,
         }}
       >
-        <Stack
-          sx={{
-            width: "150px",
-            height: "60px",
-            position: "relative",
-          }}
-        >
-          <Link href="/">
+        <Link href="/">
+          <Box
+            sx={{
+              width: "70px",
+              height: "70px",
+              position: "relative",
+              ml: 2,
+            }}
+          >
             <Image
               src="/logo.jpg"
               alt="logo"
@@ -35,7 +36,18 @@ export default function Header() {
               sizes="(max-width: 600px) 100px, 200px"
               priority
             />
-          </Link>
+          </Box>
+        </Link>
+        <Stack
+          sx={{ display: { xs: "none", md: "flex" } }}
+          direction={"row"}
+          gap={2}
+        >
+          {headerConfig.map((item) => (
+            <Link key={item.name} href={item.href}>
+              <Button variant="text">{item.name}</Button>
+            </Link>
+          ))}
         </Stack>
         <Stack
           direction={"row"}
@@ -43,17 +55,6 @@ export default function Header() {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Stack
-            sx={{ display: { xs: "none", md: "flex" } }}
-            direction={"row"}
-            gap={2}
-          >
-            {headerConfig.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <Button variant="text">{item.name}</Button>
-              </Link>
-            ))}
-          </Stack>
           <Stack>
             <Stack direction="row">
               <IconButton color="inherit" size="large">
