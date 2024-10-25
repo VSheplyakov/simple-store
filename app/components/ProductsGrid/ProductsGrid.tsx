@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Container } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
-import { get } from "http";
 import { getProducts } from "@/app/lib/data/products";
 
 type Product = {
@@ -19,8 +18,6 @@ export default async function ProductsGrid() {
   if (!products) {
     return null;
   }
-
-  console.log(products[0].description);
 
   return (
     <Container maxWidth="lg" sx={{ my: 2 }}>

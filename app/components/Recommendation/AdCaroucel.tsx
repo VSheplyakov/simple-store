@@ -10,13 +10,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import Link from "next/link";
 import { Pagination } from "swiper/modules";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import { get } from "http";
-import { getProducts } from "@/app/lib/data/products";
+
 
 const CustomSwiper = styled(Swiper)(() => ({
   paddingBottom: "30px",

@@ -13,9 +13,6 @@ import {
 import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
 import { getProduct, getProducts } from "@/app/lib/data/products";
 
-interface Params {
-  slug: string;
-}
 type Product = {
   id: number;
   name: string;
@@ -25,79 +22,85 @@ type Product = {
   image: string;
 };
 
+type Params = Promise<{ slug: string }>;
+
 export default async function ProductDetailedPage({
   params,
 }: {
   params: Params;
 }) {
-  const { slug } = await params;
-  const product = getProduct(slug) as Product;
+  try {
+    const { slug } = await params;
+    const products = (await getProducts()) as Product[];
+    const product = await getProduct(slug) as Product;
 
-  const products = (await getProducts()) as Product[];
+    if (!product) {
+      notFound();
+    }
 
-  if (!product) {
-    notFound();
-  }
-
-  return (
-    <Container maxWidth="lg" sx={{ my: 4 }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={4}>
-          <Stack alignItems={"center"}>
-            <CardMedia
-              component="img"
-              image={product.image}
-              alt={product.name}
-              sx={{
-                borderRadius: 2,
-              }}
-            />
-          </Stack>
-          {/* </CardMedia>
+    return (
+      <Container maxWidth="lg" sx={{ my: 4 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Stack alignItems={"center"}>
+              <CardMedia
+                component="img"
+                image={product.image}
+                alt={product.name}
+                sx={{
+                  borderRadius: 2,
+                }}
+              />
+            </Stack>
+            {/* </CardMedia>
           {/* <Image
             src={product.imageURL}
             width={350}
             height={350}
             alt={product.name}
           /> */}
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Typography variant="h2" gutterBottom>
+              {product.name}
+            </Typography>
+            <Typography variant="h5" color="primary" gutterBottom>
+              ${product.price}
+            </Typography>
+            <List>
+              {product.description.split(",").map((item, index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemText
+                    primary={
+                      <Typography variant="body1" color="text.secondary">
+                        • {item}
+                      </Typography>
+                    }
+                  />
+                </ListItem>
+              ))}
+            </List>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              sx={{
+                mt: 2,
+                width: {
+                  xs: "100%",
+                  sm: "auto",
+                },
+              }}
+            >
+              Add to Cart
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={8}>
-          <Typography variant="h2" gutterBottom>
-            {product.name}
-          </Typography>
-          <Typography variant="h5" color="primary" gutterBottom>
-            ${product.price}
-          </Typography>
-          <List>
-            {product.description.split(",").map((item, index) => (
-              <ListItem key={index} disablePadding>
-                <ListItemText
-                  primary={
-                    <Typography variant="body1" color="text.secondary">
-                      • {item}
-                    </Typography>
-                  }
-                />
-              </ListItem>
-            ))}
-          </List>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            sx={{
-              mt: 2,
-              width: {
-                xs: "100%",
-                sm: "auto",
-              },
-            }}
-          >
-            Add to Cart
-          </Button>
-        </Grid>
-      </Grid>
-      <AdCaroucel products={products} />
-    </Container>
-  );
+        <AdCaroucel products={products} />
+      </Container>
+    );
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }

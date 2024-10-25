@@ -7,7 +7,7 @@ export async function getProducts() {
   return db.prepare("SELECT * FROM phones").all();
 }
 
-export function getProduct(slug: string) {
+export async function getProduct(slug: string) {
   // await new Promise((resolve) => setTimeout(resolve, 1000));
   return db.prepare("SELECT * FROM phones WHERE slug = ?").get(slug);
 }
