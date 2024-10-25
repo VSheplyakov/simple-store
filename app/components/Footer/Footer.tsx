@@ -41,7 +41,7 @@ export function Footer() {
               <Link key={item.name} href={item.href}>
                 <Typography
                   variant="body1"
-                  style={{
+                  sx={{
                     color: "white",
                     textDecoration: "none",
                   }}
