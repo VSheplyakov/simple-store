@@ -13,6 +13,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
 import Image from "next/image";
 import CheckoutButton from "./ChecoutButton";
@@ -52,74 +53,75 @@ export default function CartDialog() {
           <>
             {cartItems.map((item) => (
               <React.Fragment key={item.id}>
-                <Box
+                <Stack
+                  direction={"row"}
+                  gap={1}
                   sx={{
-                    display: "flex",
                     alignItems: "center",
                     py: 2,
                   }}
                 >
-                  <Box
+                  <Stack
                     sx={{
-                      width: 80,
-                      height: 80,
-                      objectFit: "cover",
-                      mr: 2,
+                      width: { xs: "80px", md: "120px" },
+                      height: { xs: "80px", md: "120px" },
+
+                      position: "relative",
                     }}
                   >
                     <Image
                       src={item.image}
                       alt={item.name}
-                      width={80}
-                      height={80}
+                      fill
                       style={{ borderRadius: "8px" }}
                     />
-                  </Box>
+                  </Stack>
                   <Stack sx={{ flexGrow: 1 }} alignItems={"center"}>
-                    <Typography variant="h6" gutterBottom fontWeight={600}>
+                    <Typography
+                      variant="h6"
+                      textAlign={"center"}
+                      gutterBottom
+                      fontWeight={600}
+                    >
                       {item.name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      ${item.price.toFixed(2)} x {item.quantity} ={" "}
-                      <strong>
-                        ${(item.price * item.quantity).toFixed(2)}
-                      </strong>
+                    <Typography variant="body1" fontWeight={600}>
+                      ${(item.price * item.quantity).toFixed(2)}
                     </Typography>
-                    <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+                    <Stack
+                      direction="row"
+                      sx={{
+                        alignItems: "center",
+                        mt: 1,
+                        border: "1px solid lightGray",
+                        borderRadius: "8px",
+                        p: 0.5,
+                      }}
+                    >
                       <IconButton
-                        size="small"
-                        sx={{
-                          backgroundColor: "primary.main",
-                          color: "white",
-                          "&:hover": { backgroundColor: "primary.dark" },
-                        }}
+                        size="medium"
                         onClick={() => decreaseQuantity(item.id)}
                       >
-                        <RemoveIcon sx={{ fontSize: "14px" }} />
+                        <RemoveIcon sx={{ fontSize: "16px" }} />
                       </IconButton>
-                      <Box sx={{ width: "50px" }}>
-                        <Typography textAlign={"center"} sx={{ mx: 2 }}>
+                      <Box sx={{ width: "30px" }}>
+                        <Typography textAlign={"center"}>
                           {item.quantity}
                         </Typography>
                       </Box>
 
                       <IconButton
-                        size="small"
-                        sx={{
-                          backgroundColor: "primary.main",
-                          color: "white",
-                          "&:hover": { backgroundColor: "primary.dark" },
-                        }}
+                        size="medium"
                         onClick={() => increaseQuantity(item.id)}
                       >
-                        <AddIcon sx={{ fontSize: "14px" }} />
+                        <AddIcon sx={{ fontSize: "16px" }} />
                       </IconButton>
-                    </Box>
+                    </Stack>
                   </Stack>
                   <IconButton onClick={() => removeFromCart(item.id)}>
-                    <CloseIcon />
+                    <DeleteIcon />
                   </IconButton>
-                </Box>
+                </Stack>
                 <Divider />
               </React.Fragment>
             ))}
