@@ -8,19 +8,12 @@ import {
   ListItemText,
   CardMedia,
   Stack,
+  Box,
 } from "@mui/material";
 import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
 import { getProduct, getProducts } from "@/app/lib/data/products";
 import BuyNowButton from "@/app/components/BuyNowButton/BuyNowButton";
-
-type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  image: string;
-};
+import { Product } from "@/app/utils/types/types";
 
 type Params = Promise<{ slug: string }>;
 
@@ -73,7 +66,40 @@ export default async function ProductDetailedPage({
                 </ListItem>
               ))}
             </List>
-            <BuyNowButton product={product} />
+            <Stack>
+              <Typography variant="h6" gutterBottom>
+                choose color
+              </Typography>
+              <Stack direction="row" gap={2}>
+                <Box
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 20,
+                    bgcolor: "primary.main",
+                  }}
+                />
+                <Box
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 20,
+                    bgcolor: "secondary.main",
+                  }}
+                />
+                <Box
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 20,
+                    bgcolor: "error.main",
+                  }}
+                />
+              </Stack>
+            </Stack>
+            <Box mt={2}>
+              <BuyNowButton product={product} />
+            </Box>
           </Grid>
         </Grid>
         <AdCaroucel products={products} />

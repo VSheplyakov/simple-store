@@ -12,11 +12,7 @@ const BuyNowButton: React.FC<BuyNowButtonProps> = ({ product }) => {
   };
 
   return (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={handleClick}
-    >
+    <Button variant="contained" color="primary" onClick={handleClick}>
       Buy Now
     </Button>
   );

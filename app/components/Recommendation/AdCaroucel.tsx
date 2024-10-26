@@ -62,18 +62,14 @@ export function AdCaroucel({ products }: { products: Product[] }) {
                     />
                   </Stack>
 
-                  <Stack
-                    direction={"column"}
-                    mt={1}
-                    sx={{ width: { xs: "140px", md: "228px" } }}
-                  >
-                    <Stack spacing={1} pl={1}>
+                  <Stack direction={"column"} mt={1} sx={{ width: "200px" }}>
+                    <Stack spacing={1} pl={1} width={"100%"}>
                       <Typography fontWeight={"800"} fontSize={"16px"}>
                         {p.name}
                       </Typography>
 
                       <Typography fontWeight={"800"} fontSize={"16px"}>
-                        {p.price}
+                        ${p.price}
                       </Typography>
                     </Stack>
                   </Stack>
