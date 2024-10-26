@@ -4,7 +4,6 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Button,
   IconButton,
   Box,
   Typography,
@@ -16,6 +15,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useCart } from "@/app/lib/providers/CartProvider/CartProvider";
 import Image from "next/image";
+import CheckoutButton from "./ChecoutButton";
 
 export default function CartDialog() {
   const {
@@ -130,13 +130,7 @@ export default function CartDialog() {
         <Box sx={{ flexGrow: 1 }} p={1}>
           <Typography variant="h6">Total: ${totalPrice.toFixed(2)}</Typography>
         </Box>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={!cartItems.length}
-        >
-          Checkout
-        </Button>
+        <CheckoutButton />
       </DialogActions>
     </Dialog>
   );

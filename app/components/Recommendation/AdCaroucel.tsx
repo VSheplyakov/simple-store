@@ -1,6 +1,5 @@
 "use client";
 import { Box, Fade, Stack, Typography } from "@mui/material";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";

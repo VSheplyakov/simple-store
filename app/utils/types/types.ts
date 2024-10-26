@@ -17,6 +17,7 @@ export type CartContextType = {
   openCart: () => void;
   closeCart: () => void;
   isCartOpen: boolean;
+  clearCart: () => void;
 };
 
 export type CartDialogProps = {

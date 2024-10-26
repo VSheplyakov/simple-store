@@ -3,7 +3,6 @@ import {
   Container,
   Grid,
   Typography,
-  // Button,
   List,
   ListItem,
   ListItemText,
@@ -74,20 +73,6 @@ export default async function ProductDetailedPage({
                 </ListItem>
               ))}
             </List>
-            {/* <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{
-                mt: 2,
-                width: {
-                  xs: "100%",
-                  sm: "auto",
-                },
-              }}
-            >
-              Add to Cart
-            </Button> */}
             <BuyNowButton product={product} />
           </Grid>
         </Grid>
