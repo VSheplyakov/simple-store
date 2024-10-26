@@ -66,7 +66,8 @@ export default async function ProductDetailedPage({
                 </ListItem>
               ))}
             </List>
-            <Stack>
+            {/* //todo add color picker!! */}
+            {/* <Stack>
               <Typography variant="h6" gutterBottom>
                 choose color
               </Typography>
@@ -76,7 +77,7 @@ export default async function ProductDetailedPage({
                     width: 40,
                     height: 40,
                     borderRadius: 20,
-                    bgcolor: "primary.main",
+                    bgcolor: "black",
                   }}
                 />
                 <Box
@@ -84,7 +85,7 @@ export default async function ProductDetailedPage({
                     width: 40,
                     height: 40,
                     borderRadius: 20,
-                    bgcolor: "secondary.main",
+                    bgcolor: "lightGray",
                   }}
                 />
                 <Box
@@ -92,11 +93,19 @@ export default async function ProductDetailedPage({
                     width: 40,
                     height: 40,
                     borderRadius: 20,
-                    bgcolor: "error.main",
+                    bgcolor: "pink",
+                  }}
+                />
+                <Box
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 20,
+                    bgcolor: "blue",
                   }}
                 />
               </Stack>
-            </Stack>
+            </Stack> */}
             <Box mt={2}>
               <BuyNowButton product={product} />
             </Box>
