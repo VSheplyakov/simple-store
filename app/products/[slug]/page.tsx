@@ -3,7 +3,7 @@ import {
   Container,
   Grid,
   Typography,
-  Button,
+  // Button,
   List,
   ListItem,
   ListItemText,
@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { AdCaroucel } from "@/app/components/Recommendation/AdCaroucel";
 import { getProduct, getProducts } from "@/app/lib/data/products";
+import BuyNowButton from "@/app/components/BuyNowButton/BuyNowButton";
 
 type Product = {
   id: number;
@@ -32,7 +33,7 @@ export default async function ProductDetailedPage({
   try {
     const { slug } = await params;
     const products = (await getProducts()) as Product[];
-    const product = await getProduct(slug) as Product;
+    const product = (await getProduct(slug)) as Product;
 
     if (!product) {
       notFound();
@@ -52,13 +53,6 @@ export default async function ProductDetailedPage({
                 }}
               />
             </Stack>
-            {/* </CardMedia>
-          {/* <Image
-            src={product.imageURL}
-            width={350}
-            height={350}
-            alt={product.name}
-          /> */}
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography variant="h2" gutterBottom>
@@ -80,7 +74,7 @@ export default async function ProductDetailedPage({
                 </ListItem>
               ))}
             </List>
-            <Button
+            {/* <Button
               variant="contained"
               color="primary"
               size="large"
@@ -93,7 +87,8 @@ export default async function ProductDetailedPage({
               }}
             >
               Add to Cart
-            </Button>
+            </Button> */}
+            <BuyNowButton product={product} />
           </Grid>
         </Grid>
         <AdCaroucel products={products} />

@@ -1,10 +1,5 @@
 "use client";
-import {
-  Box,
-  Fade,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Fade, Stack, Typography } from "@mui/material";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,7 +9,7 @@ import Link from "next/link";
 import { Pagination } from "swiper/modules";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-
+import { Product } from "@/app/utils/types/types";
 
 const CustomSwiper = styled(Swiper)(() => ({
   paddingBottom: "30px",
@@ -29,20 +24,7 @@ const CustomSwiper = styled(Swiper)(() => ({
   },
 }));
 
-type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  image: string;
-};
-
-
-
 export function AdCaroucel({ products }: { products: Product[] }) {
-
-
   return (
     <Fade in={true} timeout={700}>
       <Box pt={4}>

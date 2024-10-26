@@ -1,4 +1,3 @@
-"use client";
 import { Box, Button, Drawer, Stack } from "@mui/material";
 import Link from "next/link";
 import { headerConfig } from "./headerConfig";

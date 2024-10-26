@@ -1,5 +1,6 @@
 "use client";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -20,6 +21,9 @@ export default function NotFound() {
         <Typography variant="h4">
           The page you are looking for does not exist.
         </Typography>
+        <Link href={"/"} style={{ marginTop: "30px" }}>
+          <Button variant="contained">Return Home page</Button>
+        </Link>
       </Box>
     </>
   );

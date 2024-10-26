@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Card,
   CardMedia,
@@ -11,15 +10,8 @@ import {
   ListItemText,
 } from "@mui/material";
 import Link from "next/link";
-
-type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  image: string;
-};
+import BuyNowButton from "../BuyNowButton/BuyNowButton";
+import { Product } from "@/app/utils/types/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -60,11 +52,9 @@ export default function ProductCard({ product }: { product: Product }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "space-around", pb: 2 }}>
-        <Button size="small" variant="contained" color="primary">
-          Buy Now
-        </Button>
+        <BuyNowButton product={product} />
         <Link href={`/products/${product.slug}`} passHref>
-          <Button size="small" variant="outlined" color="primary">
+          <Button variant="outlined" color="primary">
             Learn More
           </Button>
         </Link>

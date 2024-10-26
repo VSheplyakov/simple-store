@@ -5,6 +5,7 @@ import { MyTheme } from "./lib/providers/theme/Theme";
 import Header from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { Box } from "@mui/material";
+import { CartProvider } from "./lib/providers/CartProvider/CartProvider";
 
 export const metadata: Metadata = {
   title: "Simple Store",
@@ -15,21 +16,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <MyTheme>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              minHeight: "100vh",
-            }}
-          >
-            <Header />
-            <Box component="main" sx={{ flexGrow: 1 }}>
-              {children}
+        <CartProvider>
+          <MyTheme>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "100vh",
+              }}
+            >
+              <Header />
+              <Box component="main" sx={{ flexGrow: 1 }}>
+                {children}
+              </Box>
+              <Footer />
             </Box>
-            <Footer />
-          </Box>
-        </MyTheme>
+          </MyTheme>
+        </CartProvider>
       </body>
     </html>
   );

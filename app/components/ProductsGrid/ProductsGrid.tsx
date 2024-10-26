@@ -2,15 +2,7 @@ import React from "react";
 import { Grid, Container } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
 import { getProducts } from "@/app/lib/data/products";
-
-type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  image: string;
-};
+import { Product } from "@/app/utils/types/types";
 
 export default async function ProductsGrid() {
   const products = (await getProducts()) as Product[];

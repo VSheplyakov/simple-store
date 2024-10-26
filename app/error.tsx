@@ -1,5 +1,6 @@
 "use client";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function Error() {
   return (
@@ -20,6 +21,9 @@ export default function Error() {
         <Typography variant="h4">
           Failed to fetch data. Try again later.
         </Typography>
+        <Link href={"/"} style={{ marginTop: "30px" }}>
+          <Button variant="contained">Return Home page</Button>
+        </Link>
       </Box>
     </>
   );

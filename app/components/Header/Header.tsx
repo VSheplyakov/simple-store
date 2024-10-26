@@ -1,9 +1,9 @@
-import { Button, Divider, IconButton, Stack, Typography } from "@mui/material";
+import { Button, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import { headerConfig } from "./headerConfig";
 import { Menu } from "./Menu";
+import CartButton from "./CartButton";
 
 export default function Header() {
   return (
@@ -69,9 +69,7 @@ export default function Header() {
         >
           <Stack>
             <Stack direction="row">
-              <IconButton color="inherit" size="large">
-                <ShoppingCartIcon sx={{ fontSize: "26px" }} />
-              </IconButton>
+              <CartButton />
               <Menu />
             </Stack>
           </Stack>
