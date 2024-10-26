@@ -38,13 +38,12 @@ export function Footer() {
           </Stack>
           <Stack maxWidth={"lg"} gap={2} direction={"row"}>
             {headerConfig.map((item) => (
-              <Link key={item.name} href={item.href}>
+              <Link key={item.name} href={item.href} style={{
+                color: "white",
+                textDecoration: "none",
+              }}>
                 <Typography
                   variant="body1"
-                  sx={{
-                    color: "white",
-                    textDecoration: "none",
-                  }}
                 >
                   {item.name}
                 </Typography>
