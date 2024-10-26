@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 
 export default function Contacts() {
   return (
@@ -8,6 +8,7 @@ export default function Contacts() {
       gap={2}
       justifyContent={"center"}
       maxWidth={"lg"}
+      component={Container}
     >
       <Typography variant="h2">Contacts</Typography>
       <Typography variant="h6" textAlign={"center"}>
