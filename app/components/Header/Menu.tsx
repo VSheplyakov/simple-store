@@ -19,7 +19,7 @@ export function Menu() {
         sx={{ display: { sx: "block", md: "none" } }}
         onClick={() => toggleMenu()}
       >
-        <MenuIcon sx={{ fontSize: "26px" }} />
+        <MenuIcon sx={{ fontSize: "32px" }} />
       </IconButton>
       <MobileMenu open={menuOpen} close={toggleMenu} />
     </>

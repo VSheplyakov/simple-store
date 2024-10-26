@@ -14,9 +14,9 @@ export default function CartButton() {
 
   return (
     <>
-      <IconButton onClick={openCart}>
+      <IconButton onClick={openCart} size="large">
         <Badge badgeContent={totalItems} color="secondary">
-          <ShoppingCartIcon />
+          <ShoppingCartIcon sx={{fontSize: "32px"}} />
         </Badge>
       </IconButton>
       <CartDialog />
