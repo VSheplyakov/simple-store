@@ -1,20 +1,57 @@
-SimpleStore
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SimleStore with Next.js
+
+This is a web application for an online store built using **Next.js**, **React**, **TypeScript**, and **Material-UI**. Users can browse products, select colors, add items to the cart, and proceed to checkout.
+
+## Technologies Used
+
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Material-UI**
+- **Supabase**
+
+## Prerequisites
+
+- **Node.js** version 14.x or higher
+- **npm** or **yarn** or **pnpm**
+
 
 ## Getting Started
 
-First, run the development server:
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/VSheplyakov/simple-store.git
+   cd test-dashboard
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+## Running the Project
+
+To run the project locally:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm start
 ```
+The application will be available at `http://localhost:3000`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Building the Project
+
+To build the project for production:
+
+```bash
+npm run build
+```
+   
+
+## License
+
+This project is licensed under the MIT License.
 
 
