@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import Link from "next/link";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import { Product } from "@/app/utils/types/types";
@@ -35,9 +36,14 @@ export function AdCaroucel({ products }: { products: Product[] }) {
           Recommendation for you
         </Typography>
         <CustomSwiper
+          loop={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
           spaceBetween={16}
           slidesPerView="auto"
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           pagination={{
             clickable: true,
           }}

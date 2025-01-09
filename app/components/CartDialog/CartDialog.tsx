@@ -9,6 +9,7 @@ import {
   Typography,
   Divider,
   Stack,
+  Button,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
@@ -132,8 +133,14 @@ export default function CartDialog() {
         <Box sx={{ flexGrow: 1 }} p={1}>
           <Typography variant="h6">Total: ${totalPrice.toFixed(2)}</Typography>
         </Box>
+
         <CheckoutButton />
       </DialogActions>
+      <Box width={"100%"} textAlign={"center"} p={2}>
+        <Button onClick={closeCart} sx={{ textTransform: "none" }}>
+          Return to shopping
+        </Button>
+      </Box>
     </Dialog>
   );
 }
