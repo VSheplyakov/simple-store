@@ -24,7 +24,7 @@ This is a web application for an online store built using **Next.js**, **React**
 
    ```bash
    git clone https://github.com/VSheplyakov/simple-store.git
-   cd test-dashboard
+   cd simple-store
    ```
 
 2. **Install dependencies**:
